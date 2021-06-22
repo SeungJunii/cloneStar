@@ -1,0 +1,18 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/clonestar?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    password: jun1234
+    username: jun
