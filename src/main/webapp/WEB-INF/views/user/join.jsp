@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
@@ -35,21 +35,24 @@
         </form>
         <button id="btn-login" value="로그인">로그인</button>
         <a href="#">비밀번호를 잊으셨나요?</a>
+
+
+        <div class="login-join">
+            <span>계정이 있으신가요?</span>
+            <a href="/">로그인</a>
+        </div>
+        <div class="login-download">
+            <span>앱을 다운로드하세요</span>
+            <div class="login-market">
+                <img src="../imgs/apple.png" class="login-appstore" alt="Apple appstore logo"
+                     title="Apple appstore logo"/>
+                <img src="../imgs/googleplay.png" class="login-appstore" alt="Android appstore logo"
+                     title="Android appstore logo"/>
+            </div>
+
+        </div>
     </article>
 </div>
-<div class="login-join">
-    <span>계정이 있으신가요?</span>
-    <a href="/">로그인</a>
-</div>
-<div class="login-download">
-    <span>앱을 다운로드하세요</span>
-    <div class="login-market">
-        <img src="../imgs/apple.png" class="login-appstore" alt="Apple appstore logo" title="Apple appstore logo"/>
-        <img src="../imgs/googleplay.png" class="login-appstore" alt="Android appstore logo"
-             title="Android appstore logo"/>
-    </div>
-</div>
-
 <footer>
     <div>
         <nav>
