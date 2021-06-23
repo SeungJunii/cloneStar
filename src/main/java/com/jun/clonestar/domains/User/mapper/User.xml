@@ -18,4 +18,11 @@
         )
     </insert>
 
+    <select id="login" parameterType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
+        SELECT userAccount, pwd
+        FROM user
+        WHERE userAccount = #{account}
+        AND pwd = #{password}
+    </select>
+
 </mapper>

@@ -17,5 +17,9 @@ public class UserService {
         commonDao.insertData("User.insert", userEntity);
     }
 
+    public void login(UserEntity userEntity) {
+        commonDao.insertData("User.login", userEntity);
+    }
+
 
 }

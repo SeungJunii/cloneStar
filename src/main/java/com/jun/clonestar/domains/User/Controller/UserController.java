@@ -11,9 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
+    
+    
 
     @PostMapping("/api/join")
     public void join(@RequestBody UserEntity userEntity){
         userService.join(userEntity);
     }
-}
+
+    @PostMapping("/api/user/login")
+//    public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
+    public void login(@RequestBody UserEntity userEntity){
+        System.out.println("로그인요청");
+       
+        }
+        
+    }
