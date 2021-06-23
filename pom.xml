@@ -52,11 +52,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
-        </dependency>-->
+        </dependency>
 
         <!-- JSP 템플릿 엔진 -->
         <dependency>
@@ -84,7 +84,7 @@
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
-                    <include>**/maps/*.xml</include>
+                    <include>**/mapper/*.xml</include>
                 </includes>
             </resource>
         </resources>

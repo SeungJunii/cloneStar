@@ -4,7 +4,7 @@ let index = {
             this.save();
         });
         $("#btn-login").on("click", () => {
-            this.save();
+            this.login();
         });
     },
 

@@ -16,3 +16,10 @@ spring:
     url: jdbc:mysql://localhost:3306/clonestar?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     password: jun1234
     username: jun
+
+mybatis:
+  configuration:
+    cache-enabled: true
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:com/jun/clonestar/**/mapper/*.xml
