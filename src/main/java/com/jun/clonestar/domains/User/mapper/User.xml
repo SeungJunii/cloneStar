@@ -12,8 +12,8 @@
         ) VALUES(
         #{account},
         #{realName},
-        #{nickname},
-        #{pwd},
+        #{nickName},
+        #{password},
         now()
         )
     </insert>

@@ -1,13 +1,14 @@
 package com.jun.clonestar.config.security;
 
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-/*public class SecurityConfig {
+public class SecurityConfig {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**","/js/**","/css/**","/images/**","/test/**")
+                .antMatchers("","/api/**","/js/**","/css/**","/images/**","/test/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -17,4 +18,5 @@ package com.jun.clonestar.config.security;
                 .loginProcessingUrl("/auth/loginProc")
                 .defaultSuccessUrl("/board/feed");
     }
-}*/
+}
+

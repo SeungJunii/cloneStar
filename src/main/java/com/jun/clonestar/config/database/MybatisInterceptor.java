@@ -1,9 +1,10 @@
-/*
 package com.jun.clonestar.config.database;
 
+import lombok.var;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.plugin.Intercepts;
 import org.apache.ibatis.plugin.Invocation;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Stream;
 
@@ -29,9 +31,9 @@ public class MybatisInterceptor implements Interceptor {
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
 		var statement = (MappedStatement) invocation.getArgs()[0];
-		var mapperId = statement.getId();
+		String mapperId = statement.getId();
 		if (Arrays.stream(ignoreSqls).noneMatch(sql -> sql.equals(mapperId))) {
-			var boundSql = statement.getBoundSql(invocation.getArgs()[1]);
+			BoundSql boundSql = statement.getBoundSql(invocation.getArgs()[1]);
 			logger.info("MAPPER.ID ====> {}\n SQL :: {}", mapperId, makeLog(boundSql));
 		}
 		return invocation.proceed();
@@ -48,17 +50,17 @@ public class MybatisInterceptor implements Interceptor {
 	}
 
 	private String makeLog(BoundSql boundSql) {
-		var sql = boundSql.getSql();
-		var param = boundSql.getParameterObject();
+		String sql = boundSql.getSql();
+		Object param = boundSql.getParameterObject();
 		if (param != null) {
-			var paramClass = param.getClass();
+			Class<?> paramClass = param.getClass();
 			// 아래 열거된 형태가 아닌경우 true
-			var isMapping = Stream.of(Integer.class, Float.class, Double.class, Boolean.class, Long.class, String.class, Short.class)
+			boolean isMapping = Stream.of(Integer.class, Float.class, Double.class, Boolean.class, Long.class, String.class, Short.class)
 					.noneMatch(str -> str.equals(paramClass));
 
 			if (isMapping) {
 				// 매핑할 리스트들을 불러온다
-				var params = boundSql.getParameterMappings();
+				List<ParameterMapping> params = boundSql.getParameterMappings();
 				try {
 					for (var mapping : params) {
 						// Class 안의 Field
@@ -77,4 +79,3 @@ public class MybatisInterceptor implements Interceptor {
 		return sql;
 	}
 }
-*/
