@@ -13,8 +13,15 @@ public class ViewController {
     @Autowired
     private UserService userService;
 
-    @GetMapping({"","/"})
-    public String home(){
+    @GetMapping({"/","","/feed" })
+    public String index(){
+
+        return "/feed/feed";
+    }
+
+
+    @GetMapping({"/user/login"})
+    public String login(){
 
         return "user/login";
     }
@@ -25,6 +32,17 @@ public class ViewController {
         return "user/join";
     }
 
+    @GetMapping("/profile")
+    public String profile(){
+
+        return "user/profile";
+    }
+
+    @GetMapping("/edit")
+    public String edit(){
+
+        return "user/edit";
+    }
 
 
 

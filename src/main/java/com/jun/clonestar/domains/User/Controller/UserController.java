@@ -19,11 +19,11 @@ public class UserController {
         userService.join(userEntity);
     }
 
-    @PostMapping("/api/user/login")
+    /*@PostMapping("/api/login")
 //    public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
     public void login(@RequestBody UserEntity userEntity){
-        System.out.println("로그인요청");
+        System.out.println("로그인요청");*/
        
-        }
+
         
     }

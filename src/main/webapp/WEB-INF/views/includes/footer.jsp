@@ -24,7 +24,9 @@
   </nav>
   <span class="footer__copyright">&copy; 2021 clonestar from jun</span>
 </footer>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+
 <script src="/js/app.js"></script>
 <script src="/js/user.js"></script>
 </body>

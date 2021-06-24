@@ -3,9 +3,9 @@ let index = {
         $("#btn-join").on("click", () => {
             this.save();
         });
-        $("#btn-login").on("click", () => {
+        /*$("#btn-login").on("click", () => {
             this.login();
-        });
+        });*/
     },
 
     save: function () {
@@ -32,8 +32,7 @@ let index = {
             })
 
     },
-    login: function () {
-        // alert('user의 save함수 호출됨');
+    /*login: function () {
         let data = {
             username: $("#username").val(),
             password: $("#password").val()
@@ -53,7 +52,7 @@ let index = {
             alert("로그인이 실패되었습니다");
         });
 
-    }
+    }*/
 
 
 }

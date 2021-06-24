@@ -26,11 +26,12 @@
     <div class="login__column">
         <div class="login__box">
             <img src="/images/loginLogo.png" />
-            <form class="login__form">
+            <form action="/api/login" method="post" class="login__form">
                 <input type="text" name="account" id="account" placeholder="전화번호, 사용자 이름 또는 이메일" required/>
                 <input type="password" name="password" id="password" placeholder="비밀번호" required/>
+                <button type="submit" value="로그인">로그인</button>
             </form>
-            <button id="btn-login" value="로그인">로그인</button>
+
             <span class="login__divider">
            또는
         </span>
