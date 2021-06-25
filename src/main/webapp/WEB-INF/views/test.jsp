@@ -10,8 +10,14 @@
           rel="stylesheet">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/styles.css">
+    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <sec:authorize access="isAuthenticated()">
+        <sec:authentication property="principal" var="principal"/>
+    </sec:authorize>
 </head>
 <body>
-<h1>로그인!</h1>
+<h1>${principal.userEntity.id}, ${principal.userEntity.account}, ${principal.userEntity.realName}, ${principal.userEntity.password}</h1>
 </body>
 </html>

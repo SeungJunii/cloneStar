@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Getter
@@ -28,7 +29,7 @@ public class UserDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userEntity.getAccount();
+        return userEntity.getUserAccount();
     }
 
     @Override
@@ -53,6 +54,10 @@ public class UserDetail implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<GrantedAuthority> collector=new ArrayList<>();
+        collector.add(()->{
+            return "ROLE_"+userEntity.getRole();
+            });
+        return collector;
     }
 }

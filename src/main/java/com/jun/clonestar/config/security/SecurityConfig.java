@@ -14,8 +14,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Configuration // 빈등록 (IoC 관리)
-@EnableWebSecurity //시큐리티 필터가 등록
+@Configuration
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter   {
 
     @Autowired
@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter   {
     protected void configure(HttpSecurity httpSecurity) throws Exception{
     httpSecurity.csrf().disable();
     httpSecurity.authorizeRequests()
-            .antMatchers("/api/**","/user/**")
+            .antMatchers("/api/**","/user/**","/error")
             .permitAll()
             .anyRequest()
             .authenticated()
@@ -59,7 +59,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter   {
                 .formLogin()
                 .loginPage("/user/login")
                 .loginProcessingUrl("/api/login")
-                .usernameParameter("account")
+                .usernameParameter("userAccount")
+                .failureForwardUrl("/error")
+                .successForwardUrl("/feed")
                 .defaultSuccessUrl("/feed");
 
 

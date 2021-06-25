@@ -17,6 +17,7 @@
           rel="stylesheet">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <main id="login">
@@ -39,7 +40,7 @@
         </span>
 
             <form class="login__form">
-                <input type="text" name="account" id="account" placeholder="전화번호, 사용자 이름 또는 이메일" required/>
+                <input type="email" name="userAccount" id="userAccount" placeholder="이메일 주소" required/>
                 <input type="text" name="realName" id="realName" placeholder="성명" required/>
                 <input type="text" name="nickName" id="nickName" placeholder="사용자 이름" required/>
                 <input type="password" name="password" id="password" placeholder="비밀번호" required/>

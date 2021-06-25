@@ -15,48 +15,49 @@
         <img src="/images/avatar.jpg" />
       </div>
       <!-- master comments -->
-      <h1 class="edit-profile__username">serranoarevalo</h1>
+      <h1 class="edit-profile__username">${principal.userEntity.userAccount}</h1>
     </header>
 
-    <form class="edit-profile__form">
+    <form action="/editProc" method="post" class="edit-profile__form" >
+      <input type="hidden" id="id" value="${principal.userEntity.id}" />
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="name">Name</label>
-        <input id="name" type="text" value="Nicolás Serrano Arévalo">
+        <label class="edit-profile__label" for="realName">성명</label>
+        <input id="realName" type="text" value="${principal.userEntity.realName}">
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="username">Username</label>
-        <input id="username" type="text">
+        <label class="edit-profile__label" for="nickName">이름</label>
+        <input id="nickName" type="text" value="${principal.userEntity.nickName}" readonly="readonly">
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="website">Website</label>
-        <input id="website" type="url">
+        <label class="edit-profile__label" for="website">사이트</label>
+        <input id="website" type="url" value="${principal.userEntity.website}">
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="bio">Bio</label>
-        <textarea id="bio"></textarea>
+        <label class="edit-profile__label" for="bio">자기소개</label>
+        <textarea id="bio" rows="3" >${principal.userEntity.bio}</textarea>
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="email">Email</label>
-        <input id="email" type="email">
+        <label class="edit-profile__label" for="userAccount">Email</label>
+        <input id="userAccount" type="email" value="${principal.userEntity.userAccount}">
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="phone-number">Phone Number</label>
-        <input id="phone-number" type="text">
+        <label class="edit-profile__label" for="phone">전화번호</label>
+        <input id="phone" type="text" value="${principal.userEntity.phone}">
       </div>
       <div class="edit-profile__row">
-        <label class="edit-profile__label" for="gender">Gender</label>
+        <label class="edit-profile__label" for="gender">성별</label>
         <select  id="gender">
+          <option value="read" selected>${principal.userEntity.gender}</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
-          <option value="cant-remember" selected>Can't remember</option>
+          <option value="cant-remember" >Can't remember</option>
         </select>
       </div>
       <div class="edit-profile__row">
         <span></span>
-        <input type="submit">
       </div>
     </form>
-
+    <button id="btn-update" value="수정">수정</button>
   </div>
 </main>
 

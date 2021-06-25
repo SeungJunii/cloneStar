@@ -27,7 +27,7 @@
         <div class="login__box">
             <img src="/images/loginLogo.png" />
             <form action="/api/login" method="post" class="login__form">
-                <input type="text" name="account" id="account" placeholder="전화번호, 사용자 이름 또는 이메일" required/>
+                <input type="text" name="userAccount" id="userAccount" placeholder="전화번호, 사용자 이름 또는 이메일" required/>
                 <input type="password" name="password" id="password" placeholder="비밀번호" required/>
                 <button type="submit" value="로그인">로그인</button>
             </form>

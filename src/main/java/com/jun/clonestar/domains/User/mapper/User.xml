@@ -8,29 +8,43 @@
         realName,
         nickName,
         password,
+        role,
         createDate
         ) VALUES(
-        #{account},
+        #{userAccount},
         #{realName},
         #{nickName},
         #{password},
+        #{role},
         now()
         )
     </insert>
 
     <select id="existAccount" parameterType="String" resultType="boolean">
-        SELECT COUNT(*) FROM user WHERE userAccount=#{account}
+        SELECT COUNT(*) FROM user WHERE userAccount=#{userAccount}
     </select>
 
     <select id="selectAccount" resultType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
-        SELECT * FROM user WHERE userAccount=#{account}
+        SELECT u.*, u.userAccount as account FROM user u WHERE userAccount=#{account}
     </select>
 
     <select id="login" parameterType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
         SELECT userAccount, pwd
         FROM user
-        WHERE userAccount = #{account}
+        WHERE userAccount = #{userAccount}
         AND password = #{password}
     </select>
+
+    <update id="updateUser" parameterType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
+        UPDATE user
+        SET
+        realName=#{realName},
+        nickName=#{nickName},
+        phone=#{phone},
+        gender= #{gender},
+        bio=#{bio},
+        website=#{website}
+        WHERE id=#{id}
+    </update>
 
 </mapper>

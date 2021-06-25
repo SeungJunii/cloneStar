@@ -18,7 +18,7 @@
     </div>
     <div class="profile__info">
       <div class="profile__title">
-        <h1>serranoarevalo</h1>
+        <h1>${principal.userEntity.nickName}</h1>
         <a href="/edit">
           <button>Edit Profile</button>
         </a>
@@ -36,12 +36,9 @@
         </li>
       </ul>
       <p class="profile__bio">
-        <span class="profile__fullname">Nicolás Serrano Arévalo</span>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Voluptas repellendus cumque quo voluptatum voluptatem,
-        maxime nobis. Quae incidunt cum expedita facilis libero officiis,
-        delectus inventore tempore, ex nulla dolore cumque.
-        <a href="#" class="profile__link">serranoarevalo.com</a>
+        <span class="profile__fullname">${principal.userEntity.realName}</span>
+        ${principal.userEntity.bio}
+        <a href="#" class="profile__link">${principal.userEntity.website}</a>
       </p>
     </div>
   </header>

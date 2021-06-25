@@ -13,7 +13,6 @@ import java.util.Optional;
 @Service
 public class UserDetailService implements UserDetailsService {
 
-    private UserEntity userEntity;
 
     @Autowired
     private CommonDao commonDao;
