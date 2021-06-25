@@ -47,7 +47,7 @@
       <div class="edit-profile__row">
         <label class="edit-profile__label" for="gender">성별</label>
         <select  id="gender">
-          <option value="read" selected>${principal.userEntity.gender}</option>
+          <option value="${principal.userEntity.gender}" selected>${principal.userEntity.gender}</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="cant-remember" >Can't remember</option>

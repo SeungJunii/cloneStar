@@ -63,8 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter   {
                 .failureForwardUrl("/error")
                 .successForwardUrl("/feed")
                 .defaultSuccessUrl("/feed");
-
-
     }
 
 }

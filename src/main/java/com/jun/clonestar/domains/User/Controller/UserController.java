@@ -28,7 +28,7 @@ public class UserController {
 //    public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
     public void login(@RequestBody UserEntity userEntity){
         System.out.println("로그인요청");*/
-    @PostMapping("/editProc")
+    @PostMapping("/api/editProc")
     public void updateUser(@RequestBody UserEntity userEntity) {
         userService.updateUser(userEntity);
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userEntity.getUserAccount(),userEntity.getPassword()));
