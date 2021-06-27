@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
 <mapper namespace="Feed">
+
+    <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO feed(
+        userAccount,
+        realName,
+        nickName,
+        title,
+        picture,
+        content,
+        location,
+        together,
+        num_likes,
+        profileImgUrl,
+        time
+        ) VALUES(
+        #{userAccount},
+        #{realName},
+        #{nickName},
+        #{title},
+        #{picture},
+        #{content},
+        #{location},
+        #{together},
+        #{num_likes},
+        #{profileImgUrl},
+        now()
+        )
+    </insert>
 </mapper>
