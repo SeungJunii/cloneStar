@@ -31,8 +31,12 @@
 
       <!--사진설명 + 업로드버튼-->
       <div class="upload-form-detail">
+        <input name="account" type="email" value="${principal.userEntity.userAccount}" hidden>
+        <input name="nickName" type="text" value="${principal.userEntity.nickName}" hidden>
+        <input name="realName" type="text" value="${principal.userEntity.realName}" hidden>
+        <input type="text" placeholder="현재 위치" name="location">
         <input type="text" placeholder="사진설명" name="caption">
-        <input type="text" placeholder="#태그" name="tags">
+        <input type="text" placeholder="#태그" name="tag">
         <button class="cta blue">업로드</button>
       </div>
       <!--사진설명end-->

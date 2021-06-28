@@ -21,19 +21,24 @@ public class FeedEntity {
     private String picture;
     private String caption;
     private String location;
-    private String together;
-    private int num_likes;
+    private String tag;
+    private int likeNum;
     private String profileImgUrl;
     private Date time;
 
 
 
     @Builder
-    public FeedEntity(Integer id, String account, String realName, String nickName,   String profileImgUrl ){
+    public FeedEntity(Integer id, String account, String realName, String nickName, String picture,String caption, String location, String tag,int likeNum,  String profileImgUrl ){
         this.id = id;
         this.account = account;
         this.realName = realName;
         this.nickName = nickName;
+        this.picture = picture;
+        this.caption = caption;
+        this.location = location;
+        this.tag = tag;
+        this.likeNum = likeNum;
         this.profileImgUrl = profileImgUrl;
     }
 }

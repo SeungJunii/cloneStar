@@ -17,9 +17,18 @@ spring:
     password: jun1234
     username: jun
 
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 2MB
+
 mybatis:
   configuration:
     cache-enabled: true
     map-underscore-to-camel-case: true
   mapper-locations:
     - classpath:com/jun/clonestar/**/mapper/*.xml
+
+#file:
+#  path:
+#    upload-images: E:/cloneStar/src/main/resources/upload

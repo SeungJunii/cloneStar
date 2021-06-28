@@ -10,8 +10,8 @@
         picture,
         caption,
         location,
-        together,
-        num_likes,
+        tag,
+        likeNum,
         profileImgUrl,
         time
         ) VALUES(
@@ -21,10 +21,19 @@
         #{picture},
         #{caption},
         #{location},
-        #{together},
-        #{num_likes},
+        #{tag},
+        #{likeNum},
         #{profileImgUrl},
         now()
         )
     </insert>
+
+    <select id="getFeedByAccount"  resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+        SELECT
+            f.*
+        FROM feed as f
+        join user as u
+        on f.account = u.userAccount
+        WHERE  u.account=#{userAccount}
+    </select>
 </mapper>

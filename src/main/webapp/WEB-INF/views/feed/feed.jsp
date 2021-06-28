@@ -13,7 +13,7 @@
   <div class="photo u-default-box">
     <header class="photo__header">
       <img src="/images/avatar.jpg" />
-      <span class="photo__username">aaaa</span>
+      <span class="photo__username"></span>
     </header>
     <img src="/images/feedPhoto.jpg" />
     <div class="photo__info">
