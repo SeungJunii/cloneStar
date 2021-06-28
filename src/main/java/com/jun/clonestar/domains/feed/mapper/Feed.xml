@@ -4,24 +4,22 @@
 
     <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO feed(
-        userAccount,
+        account,
         realName,
         nickName,
-        title,
         picture,
-        content,
+        caption,
         location,
         together,
         num_likes,
         profileImgUrl,
         time
         ) VALUES(
-        #{userAccount},
+        #{account},
         #{realName},
         #{nickName},
-        #{title},
         #{picture},
-        #{content},
+        #{caption},
         #{location},
         #{together},
         #{num_likes},

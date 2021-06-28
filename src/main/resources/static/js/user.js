@@ -78,7 +78,7 @@ let index = {
         }).done(function (resp) {
             alert("회원수정이 완료되었습니다.");
             //console.log(resp);
-            location.href = "/";
+            location.href = "/user/profile";
         }).fail(function (error) {
             console.log(JSON.stringify(error));
         });

@@ -34,16 +34,22 @@ public class ViewController {
         return "user/join";
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/user/profile")
     public String profile() {
 
         return "user/profile";
     }
 
-    @GetMapping("/edit")
+    @GetMapping("/user/edit")
     public String edit() {
 
         return "user/edit";
+    }
+
+    @GetMapping("/feed/imgregister")
+    public String register() {
+
+        return "feed/imgregister";
     }
 
     /*@GetMapping("/messages/inbox")

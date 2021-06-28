@@ -25,7 +25,7 @@
     </select>
 
     <select id="selectAccount" resultType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
-        SELECT u.*, u.userAccount as account FROM user u WHERE userAccount=#{account}
+        SELECT u.*, u.userAccount as userAccount FROM user u WHERE userAccount=#{userAccount}
     </select>
 
     <select id="login" parameterType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">

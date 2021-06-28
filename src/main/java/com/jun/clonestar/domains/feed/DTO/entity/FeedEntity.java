@@ -18,9 +18,8 @@ public class FeedEntity {
     private String account;//계정명
     private String realName;// 성명
     private String nickName;// 사용자 이름
-    private String title;
     private String picture;
-    private String content;
+    private String caption;
     private String location;
     private String together;
     private int num_likes;

@@ -36,13 +36,13 @@
   </a>
   <input type="text" placeholder="Search">
   <div class="navigation__links">
-    <a href="/explore" class="navigation__link">
+    <a href="/feed/explore" class="navigation__link">
       <i class="fa fa-compass"></i>
     </a>
     <a href="#" class="navigation__link follow_popup">
       <i class="fa fa-heart-o"></i>
     </a>
-    <a href="/profile" class="navigation__link">
+    <a href="/user/profile" class="navigation__link">
       <i class="fa fa-user-o"></i>
     </a>
   </div>

@@ -13,7 +13,7 @@ public class FeedController {
     @Autowired
     private FeedSerivice feedSerivice;
 
-    @PostMapping("/feed/register")
+    @PostMapping("/api/register")
     public void register(@RequestBody FeedEntity feedEntity ){
         feedSerivice.register(feedEntity);
     }

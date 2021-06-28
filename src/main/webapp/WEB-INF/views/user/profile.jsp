@@ -19,7 +19,7 @@
     <div class="profile__info">
       <div class="profile__title">
         <h1>${principal.userEntity.nickName}</h1>
-        <a href="/edit">
+        <a href="/user/edit">
           <button>Edit Profile</button>
         </a>
         <i class="fa fa-cog fa-lg"></i>
@@ -42,6 +42,9 @@
       </p>
     </div>
   </header>
+  <a href="/feed/imgregister">
+    <button>이미지 등록하기</button>
+  </a>
   <div class="profile__photo-grid">
     <div class="profile__photo-row">
       <div class="profile__photo">
