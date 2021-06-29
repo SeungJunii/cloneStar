@@ -1,5 +1,6 @@
 package com.jun.clonestar.domains.feed.Controller;
 
+import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
 import com.jun.clonestar.domains.feed.DTO.entity.FeedEntity;
 import com.jun.clonestar.domains.feed.service.FeedSerivice;
 import com.jun.clonestar.util.FileUploadUtil;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -49,6 +51,16 @@ public class FeedController {
         List<FeedEntity> feedList = feedSerivice.feedList(model);
         model.addAttribute("feedList",feedList);
         return "feed/feed";
+    }
+
+
+    @GetMapping("/user/profile")
+    public String getFeedByAccount(Principal principal, Model model) throws Exception {
+        System.out.println(principal.getName());
+        List<FeedEntity> getFeedByAccount = feedSerivice.getFeedByAccount(principal.getName());
+
+        model.addAttribute("getFeedByAccount",getFeedByAccount);
+        return "user/profile";
     }
 
 

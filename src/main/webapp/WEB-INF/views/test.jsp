@@ -22,7 +22,7 @@
 </head>
 <body>
 <h1>${principal.userEntity.id}, ${principal.userEntity.userAccount}, ${principal.userEntity.realName}, ${principal.userEntity.password}  </h1>
-<h2>${feedList.account}<h2>
+<h2>${feedList.account} { <h2>
 
 </body>
 </html>

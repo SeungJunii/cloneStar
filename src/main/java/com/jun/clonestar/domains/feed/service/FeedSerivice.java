@@ -2,6 +2,7 @@ package com.jun.clonestar.domains.feed.service;
 
 import com.jun.clonestar.config.database.dao.CommonDao;
 import com.jun.clonestar.config.database.dao.ICommonDao;
+import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
 import com.jun.clonestar.domains.feed.DTO.entity.FeedEntity;
 import com.jun.clonestar.domains.feed.mapper.FeedMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,16 @@ public class FeedSerivice {
 
     }
 
+
     @Transactional
     public List<FeedEntity> feedList (Model model) {
       return commonDao.getList("Feed.feedList", model);
 
     }
+    @Transactional
+    public List<FeedEntity> getFeedByAccount (String account) {
+        return commonDao.getList("Feed.getFeedByAccount", account);
+
+    }
+
 }

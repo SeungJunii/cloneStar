@@ -34,12 +34,13 @@
         ORDER BY id DESC
     </select>
 
-    <select id="getFeedByAccount"  resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+    <select id="getFeedByAccount"  parameterType ="String"  resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         SELECT
             f.*
         FROM feed as f
         join user as u
         on f.account = u.userAccount
-        WHERE  u.account=#{userAccount}
+        WHERE  u.userAccount=#{userAccount}
+        ORDER BY f.id DESC
     </select>
 </mapper>

@@ -31,18 +31,10 @@ public class UserService {
 
     @Transactional
     public void updateUser(UserEntity userEntity){
-        System.out.println("phone : " +userEntity.getPhone());
-        update(userEntity);
-        System.out.println("phone : " +userEntity.getPhone());
+        commonDao.updateData("User.updateUser", userEntity);
     }
 
-    @Transactional
-    public void update(UserEntity user) {
-        commonDao.updateData("User.updateUser", user);
-        System.out.println(user.getPhone());
-        System.out.println(user.getId());
-        System.out.println(user.getUserAccount());
-    }
+
 
     /*public void login(UserEntity userEntity) {
         commonDao.insertData("User.login", userEntity);

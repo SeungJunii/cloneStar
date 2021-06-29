@@ -28,11 +28,11 @@ public class ViewController {
         return "user/join";
     }
 
-    @GetMapping("/user/profile")
+    /*@GetMapping("/user/profile")
     public String profile() {
 
         return "user/profile";
-    }
+    }*/
 
     @GetMapping("/user/edit")
     public String edit() {
