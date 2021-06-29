@@ -28,6 +28,12 @@
         )
     </insert>
 
+    <select id="feedList" resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+        Select *
+        FROM feed
+        ORDER BY id DESC
+    </select>
+
     <select id="getFeedByAccount"  resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         SELECT
             f.*

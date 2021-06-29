@@ -15,12 +15,6 @@ public class ViewController {
     @Autowired
     private UserService userService;
 
-    @GetMapping({"/", "", "/feed"})
-    public String feed() {
-
-        return "/feed/feed";
-    }
-
 
     @GetMapping({"/user/login"})
     public String login() {

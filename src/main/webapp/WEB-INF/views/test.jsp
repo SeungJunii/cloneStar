@@ -1,4 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +18,11 @@
           rel="stylesheet">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="/css/styles.css">
-    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-    <sec:authorize access="isAuthenticated()">
-        <sec:authentication property="principal" var="principal"/>
-    </sec:authorize>
+
 </head>
 <body>
 <h1>${principal.userEntity.id}, ${principal.userEntity.userAccount}, ${principal.userEntity.realName}, ${principal.userEntity.password}  </h1>
-
+<h2>${feedList.account}<h2>
 
 </body>
 </html>

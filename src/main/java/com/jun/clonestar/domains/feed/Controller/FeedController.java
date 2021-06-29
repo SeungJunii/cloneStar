@@ -6,11 +6,13 @@ import com.jun.clonestar.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class FeedController {
@@ -30,10 +32,23 @@ public class FeedController {
         return "feed/feed";
     }
 
-    @GetMapping("/feed/list")
+    /*@GetMapping("/feed/list")
     public void list(FeedEntity feedEntity){
         feedSerivice.feedEntityList(feedEntity);
         System.out.println(feedSerivice.feedEntityList(feedEntity));
+    }*/
+    /*@GetMapping({"/", "", "/feed"})
+    public String feed() {
+
+        return "/feed/feed";
+    }*/
+
+
+    @GetMapping({"/", "", "/feed"})
+    public String feedList(Model model) throws Exception {
+        List<FeedEntity> feedList = feedSerivice.feedList(model);
+        model.addAttribute("feedList",feedList);
+        return "feed/feed";
     }
 
 

@@ -1,6 +1,6 @@
 package com.jun.clonestar.domains.User.service;
 
-import com.jun.clonestar.config.database.dao.CommonDao;
+import com.jun.clonestar.config.database.dao.ICommonDao;
 import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
 import com.jun.clonestar.domains.User.DTO.role.RoleType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class UserService {
 
 
     @Autowired
-    private CommonDao commonDao;
+    private ICommonDao commonDao;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
