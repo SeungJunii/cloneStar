@@ -45,9 +45,23 @@
     <a href="/feed/imgregister">
         <button>이미지 등록하기</button>
     </a>
-    ${UserEntity.id}
-    <c:forEach items="${getFeedByAccount}" var="feed">
-
+    <c:forEach items="${getFeedByAccount}" var="feed" varStatus="status" step="1" begin="0">
+        <div class="profile__photo-row">
+            <div class="profile__photo">
+                <a href="#">
+                    <img src="/feed-picture/${feed.id}/${feed.picture}"/>
+                    <div class="profile__photo-overlay">
+                  <span class="profile__photo-stat">
+                    <i class="fa fa-heart"></i> 504
+                  </span>
+                        <span class="profile__photo-stat">
+                    <i class="fa fa-comment"></i> 22
+                  </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </c:forEach>
         <div class="photo u-default-box">
             <header class="photo__header">
                 <img src="/images/avatar.jpg"/>
@@ -84,7 +98,7 @@
                 </div>
             </div>
         </div>
-    </c:forEach>
+
 </main>
 
 <%@ include file="../includes/footer.jsp" %>

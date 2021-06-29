@@ -15,7 +15,7 @@
     <!--사진업로드 로고-->
     <div class="upload-top">
       <a href="home.html" class="">
-        <img src="/images/logo.jpg" alt="">
+        <img src="/images/loginLogo.jpg" alt="">
       </a>
       <p>사진 업로드</p>
     </div>
@@ -26,7 +26,7 @@
       <input type="file" name="file"  accept="image/*" id="input_img" />
 
       <div class="upload-img">
-        <img src="/images/profile.jpeg" alt="" id="img_preview" />
+        <img src="/images/exam.jpg" alt="" id="img_preview" />
       </div>
 
       <!--사진설명 + 업로드버튼-->

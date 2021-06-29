@@ -35,8 +35,9 @@
 }
 
 
-.photo img {
-  max-width: 100%;
+.photo > img {
+  width: 100%; height: 400px;
+  object-fit: contain;
 }
 
 .photo__info {

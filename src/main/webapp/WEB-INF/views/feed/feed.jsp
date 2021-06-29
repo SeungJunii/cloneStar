@@ -19,8 +19,6 @@
                     <span class="photo__location">${feed.location}</span>
                 </div>
             </header>
-
-
             <img src="/feed-picture/${feed.id}/${feed.picture}"/>
             <div class="photo__info">
                 <div class="photo__actions">

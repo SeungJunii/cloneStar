@@ -48,10 +48,11 @@
   border: 0;
   font-weight: 600;
   padding: 5px 15px;
-  background: transparent;
+  background: yellow;
   border-radius: 3px;
   font-size: 14px;
-  border: 1px solid rgba(0, 0, 0, .0975);
+  border: 1px solid rgba(0, 0, 0, .975);
+  color: #003569;
 }
 
 .profile__title i {
@@ -86,7 +87,7 @@
   color: #385185;
 }
 
-.profile__photo-row .profile__photo {
+.profile__photo-grid .profile__photo {
   width: 32%;
 }
 
@@ -125,7 +126,7 @@
   opacity: 1;
 }
 
-.profile__photo-row {
+.profile__photo-grid {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
