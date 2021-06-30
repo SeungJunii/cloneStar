@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 public class MVCConfig implements WebMvcConfigurer{
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        exposeDirectory("profile-picture", registry);
         exposeDirectory("feed-picture", registry);
     }
 

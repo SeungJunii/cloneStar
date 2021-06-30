@@ -16,14 +16,16 @@
   width: 70%;
 }
 
-.profile__header .avatar__container {
+.profile__header .pofile__container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 30%;
 }
 
-.avatar__container img {
+.profile__container img {
+  width: 200px; height: 200px;
+  object-fit: cover;
   border-radius: 50%;
   animation: 6s potato infinite ease-in-out;
 }
@@ -88,7 +90,9 @@
 }
 
 .profile__photo-grid .profile__photo {
-  width: 32%;
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
 }
 
 .profile__photo a img {
@@ -127,7 +131,9 @@
 }
 
 .profile__photo-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
   justify-content: space-between;
   margin-bottom: 20px;
 }
@@ -187,5 +193,45 @@
 }
 
 .profile__overlay-link:hover {
+  background: #efefef;
+}
+.profileImg__overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.profileImg__overlay i {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.profileImg__overlay-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.profileImg__overlay-link {
+  background: white;
+  width: 400px;
+  text-align: center;
+  padding: 20px 0;
+  color: inherit;
+  border-bottom: 1px solid #e6e6e6;
+  transition: background .5s ease-out;
+}
+
+.profileImg__overlay-link:hover {
   background: #efefef;
 }

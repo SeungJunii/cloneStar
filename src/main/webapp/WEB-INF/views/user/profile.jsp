@@ -10,11 +10,10 @@
 
 <main id="profile">
     <header class="profile__header">
-        <div class="avatar__container">
-            <form id="frm_profile_img" action="/user/profileUpload" method="post">
-                <input type="file" name="profileImage" style="display: none;"/>
-            </form>
-            <img src="/images/avatar.jpg" id="profile_image" style="cursor:pointer"/>
+        <div class="profile__container img-cog">
+            <a href="#">
+                <img src="/profile-picture/${principal.userEntity.id}/${principal.userEntity.profileImgUrl}" id="profile_image"/>
+            </a>
         </div>
         <div class="profile__info">
             <div class="profile__title">
@@ -43,13 +42,13 @@
         </div>
     </header>
     <a href="/feed/imgregister">
-        <button>이미지 등록하기</button>
+        <button>피드 등록하기</button>
     </a>
     <div class="profile__photo-grid">
         <c:forEach items="${getFeedByAccount}" var="feed" varStatus="status" step="1" begin="0">
             <div class="profile__photo ${status.index %3 + 1}">
                 <a href="#">
-                    <img src="/feed-picture/${feed.id}/${feed.picture}"/>
+                    <img src="/feed-picture/${feed.num}/${feed.picture}"/>
                     <div class="profile__photo-overlay">
                   <span class="profile__photo-stat">
                     <i class="fa fa-heart"></i> 504
@@ -74,7 +73,42 @@
         <a href="#" class="profile__overlay-link" id="cancel">Cancel</a>
     </div>
 </div>
+<div class="profileImg__overlay">
+    <i class="fa fa-times"></i>
+    <div class="profileImg__overlay-container">
+        <form class="upload-form" method="POST" enctype="multipart/form-data" action="/editProImg">
+            <input type="file" name="file" accept="image/*" id="input_img"/>
+            <div class="upload-img">
+                <img src="/images/exam.jpg" alt="" id="img_preview"/>
+            </div>
+            <input type="hidden" name="id" value="${principal.userEntity.id}" />
+            <input name="userAccount" type="email" value="${principal.userEntity.userAccount}" hidden>
+            <button class="profile__overlay-link">프로필 사진 업로드</button>
+        </form>
+        <a href="#" class="profile__overlay-link" id="icancel">Cancel</a>
+    </div>
+</div>
 
+<script>
+    $("#input_img").on("change", (e) => {
+        let files = e.target.files;
+        let filesArr = Array.prototype.slice.call(files);
+        filesArr.forEach((f) => {
+            if (!f.type.match("image.*")) {
+                alert("이미지를 등록해야 합니다.");
+                return;
+            }
+
+            let reader = new FileReader();
+            console.log(reader);
+            reader.onload = (e) => {
+                console.log(e.target);
+                $("#img_preview").attr("src", e.target.result);
+            }
+            reader.readAsDataURL(f); // 이 코드 실행시 reader.onload 실행됨.
+        });
+    });
+</script>
 
 
 <%@ include file="../includes/footer.jsp" %>

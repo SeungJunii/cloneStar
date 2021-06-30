@@ -35,5 +35,7 @@ public class UserController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         System.out.println(userEntity.getUserAccount());
     }
+
+
         
 }

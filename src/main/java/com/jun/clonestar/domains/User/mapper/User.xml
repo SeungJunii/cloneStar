@@ -46,5 +46,11 @@
         website=#{website}
         WHERE id=#{id}
     </update>
+    <update id="updateUserImg" parameterType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
+        UPDATE user
+        SET
+        profileimgurl=#{profileImgUrl}
+        WHERE id=#{id}
+    </update>
 
 </mapper>

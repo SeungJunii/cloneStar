@@ -12,7 +12,7 @@
 
     <header class="edit-profile__header">
       <div class="fucker-container">
-        <img src="/images/avatar.jpg" />
+        <img src="/profile-picture/${principal.userEntity.id}/${principal.userEntity.profileImgUrl}"/>
       </div>
       <!-- master comments -->
       <h1 class="edit-profile__username">${principal.userEntity.userAccount}</h1>

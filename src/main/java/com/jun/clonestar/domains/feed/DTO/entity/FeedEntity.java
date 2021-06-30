@@ -14,7 +14,7 @@ import java.util.Date;
 public class FeedEntity {
 
 
-    private Integer id;
+    private Integer num;
     private String account;//계정명
     private String realName;// 성명
     private String nickName;// 사용자 이름
@@ -25,12 +25,13 @@ public class FeedEntity {
     private int likeNum;
     private String profileImgUrl;
     private Date time;
+    private Integer id;
 
 
 
     @Builder
-    public FeedEntity(Integer id, String account, String realName, String nickName, String picture,String caption, String location, String tag,int likeNum,  String profileImgUrl ){
-        this.id = id;
+    public FeedEntity(Integer num, String account, String realName, String nickName, String picture,String caption, String location, String tag,int likeNum,  String profileImgUrl, Integer id ){
+        this.num = num;
         this.account = account;
         this.realName = realName;
         this.nickName = nickName;
@@ -40,5 +41,6 @@ public class FeedEntity {
         this.tag = tag;
         this.likeNum = likeNum;
         this.profileImgUrl = profileImgUrl;
+        this.id = id;
     }
 }

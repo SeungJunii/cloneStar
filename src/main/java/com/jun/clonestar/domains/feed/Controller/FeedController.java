@@ -29,7 +29,7 @@ public class FeedController {
 
         feedSerivice.register(feedEntity);
 
-        String uploadDir = "feed-picture/" + feedEntity.getId();
+        String uploadDir = "feed-picture/" + feedEntity.getNum();
         FileUploadUtil.saveFile(uploadDir, filename, multipartFile);
         return "feed/feed";
     }

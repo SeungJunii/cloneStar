@@ -34,6 +34,11 @@ public class UserService {
         commonDao.updateData("User.updateUser", userEntity);
     }
 
+    @Transactional
+    public void updateUserImg(UserEntity userEntity){
+        commonDao.updateData("User.updateUserImg", userEntity);
+    }
+
 
 
     /*public void login(UserEntity userEntity) {

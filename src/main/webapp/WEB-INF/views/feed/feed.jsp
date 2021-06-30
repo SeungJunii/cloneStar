@@ -13,13 +13,13 @@
     <c:forEach items="${feedList}" var="feed">
         <div class="photo u-default-box">
             <header class="photo__header">
-                <img src="/images/avatar.jpg"/>
+                <img src="/profile-picture/${feed.id}/${feed.profileImgUrl}"/>
                 <div class="photo__username">
                     <span class="photo__author">${feed.nickName}</span>
                     <span class="photo__location">${feed.location}</span>
                 </div>
             </header>
-            <img src="/feed-picture/${feed.id}/${feed.picture}"/>
+            <img src="/feed-picture/${feed.num}/${feed.picture}"/>
             <div class="photo__info">
                 <div class="photo__actions">
             <span class="photo__action">
