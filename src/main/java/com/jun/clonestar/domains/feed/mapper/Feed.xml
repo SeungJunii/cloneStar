@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
-<mapper namespace="Feed" xmlns:c="mybatis-3-mapper.dtd">
+<mapper namespace="Feed">
 
     <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity" useGeneratedKeys="true"
             keyProperty="num">
@@ -68,7 +68,7 @@
         ORDER BY f.num DESC
     </select>
 
-    <select id="getFeedByAccount" parameterType="String"
+    <!--<select id="getFeedByAccount" parameterType="String"
             resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         SELECT
         f.num,
@@ -84,7 +84,7 @@
          LEFT JOIN REPLY AS R ON R.FEED_NUM = F.NUM
         WHERE u.userAccount=#{userAccount}
         ORDER BY f.num DESC
-    </select>
+    </select>-->
     <select id="feedHasReply" resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         select * from feed ORDER BY num DESC
     </select>
@@ -94,11 +94,11 @@
         <!--parameterType="Integer"-->
         select * from reply where feedNum= #{feedNum}
     </select>
-    <select id="getReplyList2"
+    <!--<select id="getReplyList2"
             parameterType="List"
             resultType="com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity">
-        <!--parameterType="Integer"-->
+        &lt;!&ndash;parameterType="Integer"&ndash;&gt;
         select * from reply where feedNum in ( <foreach collection="list" item="">feedNum</foreach> )
     </select>
-
+-->
 </mapper>

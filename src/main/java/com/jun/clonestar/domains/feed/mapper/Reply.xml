@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
-<mapper namespace="Reply">
+<mapper namespace="Reply" >
     <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity" useGeneratedKeys="true" keyProperty="replyId">
         INSERT INTO reply(
         replyId,
