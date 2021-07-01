@@ -10,18 +10,30 @@
 
 <main id="profile">
     <header class="profile__header">
-        <div class="profile__container img-cog">
-            <a href="#">
-                <img src="/profile-picture/${principal.userEntity.id}/${principal.userEntity.profileImgUrl}" id="profile_image"/>
-            </a>
-        </div>
+        <c:choose>
+            <c:when test="${info.userAccount==principal.userEntity.userAccount}">
+                <div class="profile__container img-cog">
+                    <a href="#">
+                        <img src="/profile-picture/${info.id}/${info.profileImgUrl}" id="profile_image"/>
+                    </a>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="profile__container">
+                    <img src="/profile-picture/${info.id}/${info.profileImgUrl}"/>
+                </div>
+            </c:otherwise>
+        </c:choose>
         <div class="profile__info">
             <div class="profile__title">
-                <h1>${principal.userEntity.nickName}</h1>
-                <a href="/user/edit">
-                    <button>Edit Profile</button>
-                </a>
-                <i class="fa fa-cog fa-lg"></i>
+
+                <h1>${info.nickName}</h1>
+                <c:if test="${info.userAccount==principal.userEntity.userAccount}">
+                    <a href="/user/edit">
+                        <button>Edit Profile</button>
+                    </a>
+                    <i class="fa fa-cog fa-lg"></i>
+                </c:if>
             </div>
             <ul class="profile__stats">
                 <li class="profile__stat">
@@ -35,15 +47,17 @@
                 </li>
             </ul>
             <p class="profile__bio">
-                <span class="profile__fullname">${principal.userEntity.realName}</span>
-                ${principal.userEntity.bio}
-                <a href="#" class="profile__link">${principal.userEntity.website}</a>
+                <span class="profile__fullname">${info.realName}</span>
+                ${info.bio}
+                <a href="#" class="profile__link">${info.website}</a>
             </p>
         </div>
     </header>
-    <a href="/feed/imgregister">
-        <button>피드 등록하기</button>
-    </a>
+    <c:if test="${info.userAccount==principal.userEntity.userAccount}">
+        <a href="/feed/imgregister">
+            <button>피드 등록하기</button>
+        </a>
+    </c:if>
     <div class="profile__photo-grid">
         <c:forEach items="${getFeedByAccount}" var="feed" varStatus="status" step="1" begin="0">
             <div class="profile__photo ${status.index %3 + 1}">
@@ -81,7 +95,7 @@
             <div class="upload-img">
                 <img src="/images/exam.jpg" alt="" id="img_preview"/>
             </div>
-            <input type="hidden" name="id" value="${principal.userEntity.id}" />
+            <input type="hidden" name="id" value="${principal.userEntity.id}"/>
             <input name="userAccount" type="email" value="${principal.userEntity.userAccount}" hidden>
             <button class="profile__overlay-link">프로필 사진 업로드</button>
         </form>

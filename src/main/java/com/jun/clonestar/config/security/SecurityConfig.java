@@ -37,9 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter   {
         auth
                 .userDetailsService(userDetailService)
                 .passwordEncoder(passwordEncoder());
-        System.out.println("auth : "+auth
-                .userDetailsService(userDetailService)
-                .passwordEncoder(passwordEncoder()));
     }
     @Override
     public void configure(WebSecurity webSecurity) throws Exception{

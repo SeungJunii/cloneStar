@@ -23,7 +23,6 @@ public class UserDetailService implements UserDetailsService {
 
         if(commonDao.getData("User.existAccount",account)){
             principal=commonDao.getData("User.selectAccount",account);
-            System.out.println(principal.getPassword());
         }
         return new UserDetail(principal);
     }

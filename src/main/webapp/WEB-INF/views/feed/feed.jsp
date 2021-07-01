@@ -9,13 +9,40 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ include file="../includes/header.jsp" %>
+
+<script>
+    function onReplyAddClick(obj){
+        const from = $(obj).prev();
+        let data = {
+            feedNum: from.find(".feedNum").val(),
+            writer: $(".writer").val(),
+            content: from.find(".content").val(),
+        }
+        $.ajax({
+            type: 'post',
+            url: '/api/reply',
+            data: JSON.stringify(data),
+            contentType: 'application/json; utf-8',
+            dataTypes: 'json'
+        })
+            .done(function () {
+                alert("댓글등록완료");
+                location.href= '/';
+            })
+            .fail(function () {
+                alert("댓글등록실패")
+            })
+    }
+</script>
 <main id="feed">
     <c:forEach items="${feedList}" var="feed">
         <div class="photo u-default-box">
             <header class="photo__header">
                 <img src="/profile-picture/${feed.id}/${feed.profileImgUrl}"/>
                 <div class="photo__username">
-                    <span class="photo__author">${feed.nickName}</span>
+                    <a href="user/profile/${feed.account}">
+                        <span class="photo__author">${feed.nickName}</span>
+                    </a>
                     <span class="photo__location">${feed.location}</span>
                 </div>
             </header>
@@ -40,8 +67,12 @@
                 </ul>
                 <span class="photo__date">${feed.time}</span>
                 <div class="photo__add-comment-container">
-                    <textarea placeholder="댓글을 ...."></textarea>
-                    <i class="fa fa-ellipsis-h"></i>
+                    <form class="cmform">
+                        <input class="feedNum" type="text" value="${feed.num}">
+                        <input class="writer" type="text" value="${principal.userEntity.nickName}" hidden>
+                        <textarea class="content" placeholder="댓글을 ...."></textarea>
+                    </form>
+                    <button <%--class="btn-reply"--%> value="등록" onclick="onReplyAddClick(this)">등록</button>
                 </div>
             </div>
         </div>

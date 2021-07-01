@@ -1,15 +1,18 @@
 package com.jun.clonestar.domains.feed.Controller;
 
 import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
+import com.jun.clonestar.domains.User.service.UserService;
 import com.jun.clonestar.domains.feed.DTO.entity.FeedEntity;
 import com.jun.clonestar.domains.feed.service.FeedSerivice;
 import com.jun.clonestar.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -20,6 +23,9 @@ import java.util.List;
 public class FeedController {
     @Autowired
     private FeedSerivice feedSerivice;
+
+    @Autowired
+    private UserService userService;
 
 
     @PostMapping("/api/register")
@@ -54,12 +60,12 @@ public class FeedController {
     }
 
 
-    @GetMapping("/user/profile")
-    public String getFeedByAccount(Principal principal, Model model) throws Exception {
-        System.out.println(principal.getName());
-        List<FeedEntity> getFeedByAccount = feedSerivice.getFeedByAccount(principal.getName());
-
+    @GetMapping("/user/profile/{account}")
+    public String getFeedByAccount(@PathVariable String account , Model model) throws Exception {
+        List<FeedEntity> getFeedByAccount = feedSerivice.getFeedByAccount(account);
         model.addAttribute("getFeedByAccount",getFeedByAccount);
+        UserEntity info = userService.information(account);
+        model.addAttribute("info",info);
         return "user/profile";
     }
 

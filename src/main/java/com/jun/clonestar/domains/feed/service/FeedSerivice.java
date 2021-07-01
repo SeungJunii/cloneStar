@@ -23,8 +23,6 @@ public class FeedSerivice {
     @Transactional
     public void register(FeedEntity feedEntity) {
         commonDao.insertData("Feed.insert", feedEntity);
-        System.out.println("location : " +feedEntity.getLocation());
-
     }
 
 

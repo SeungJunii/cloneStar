@@ -1,3 +1,4 @@
+
 let index = {
     init: function () {
         $("#btn-join").on("click", () => {
@@ -8,6 +9,9 @@ let index = {
         });*/
         $("#btn-update").on("click", () => {
             this.update();
+        });
+        $(".btn-reply").on("click", () => {
+            this.reply();
         });
     },
 
@@ -82,6 +86,38 @@ let index = {
         });
 
     },
+
+    /*function onReplyAddClick(obj){
+    const from = $(obj).prev();
+    from.find(".feedNum").val();
+    }
+*/
+
+
+    /*reply: function () {
+        let data = {
+            feedNum: target.find($(".feedNum")).val(),
+            writer: $(".writer").val(),
+            content: $(".content").val()
+        }
+        $.ajax({
+            type: 'post',
+            url: '/api/reply',
+            data: JSON.stringify(data),
+            contentType: 'application/json; utf-8',
+            dataTypes: 'json'
+        })
+            .done(function () {
+                alert("댓글등록완료");
+                location.href= '/';
+            })
+            .fail(function () {
+                alert("댓글등록실패")
+
+            })
+
+    },*/
+
 
 
 }

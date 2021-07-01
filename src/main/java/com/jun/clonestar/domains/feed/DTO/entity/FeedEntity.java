@@ -1,12 +1,12 @@
 package com.jun.clonestar.domains.feed.DTO.entity;
 
-import com.jun.clonestar.domains.User.DTO.role.RoleType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,6 +26,8 @@ public class FeedEntity {
     private String profileImgUrl;
     private Date time;
     private Integer id;
+
+    private List<ReplyEntity> replyEntities;
 
 
 

@@ -39,6 +39,8 @@ public class UserService {
         commonDao.updateData("User.updateUserImg", userEntity);
     }
 
+    @Transactional
+    public UserEntity information(String account){ return commonDao.getData("User.selectAccount", account);}
 
 
     /*public void login(UserEntity userEntity) {
