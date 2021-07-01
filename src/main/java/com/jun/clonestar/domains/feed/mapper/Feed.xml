@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
-<mapper namespace="Feed">
-    
-    <!--<resultMap id="userMap" type="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
-        <result column="id" property="id"/>
-        <result column="profileimgurl" property="profileImgUrl"/>
-    </resultMap>
+<mapper namespace="Feed" xmlns:c="mybatis-3-mapper.dtd">
 
-    <resultMap id="feedMap" type="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
-        <result column="id" property="id"/>
-        <result column="account" property="account"/>
-        <result column="realName" property="realName"/>
-        <result column="nickName" property="nickName"/>
-        <result column="picture" property="picture"/>
-        <result column="location" property="location"/>
-        <result column="tag" property="tag"/>
-    </resultMap>-->
-
-    <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity" useGeneratedKeys="true" keyProperty="num">
+    <insert id="insert" parameterType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity" useGeneratedKeys="true"
+            keyProperty="num">
         INSERT INTO feed(
         account,
         realName,
@@ -45,39 +31,74 @@
 
     <select id="feedList" resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         SELECT
-            f.num,
-            f.account,
-            f.realName,
-            f.nickName,
-            f.picture,
-            f.caption,
-            f.location,
-            f.tag,
-            f.likeNum,
-            u.profileimgurl,
-            u.id
+        f.num,
+        f.account,
+        f.realName,
+        f.nickName,
+        f.picture,
+        f.caption,
+        f.location,
+        f.tag,
+        f.likeNum,
+        u.profileimgurl,
+        u.id
         FROM feed as f
         join user as u
         on f.account = u.userAccount
         ORDER BY f.num DESC
     </select>
 
-    <select id="getFeedByAccount"  parameterType ="String"  resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+    <select id="getFeedByAccount" parameterType="String"
+            resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
         SELECT
-            f.num,
-            f.account,
-            f.realName,
-            f.picture,
-            f.caption,
-            f.location,
-            f.tag,
-            f.likeNum,
-            u.profileimgurl,
-            u.id
+        f.num,
+        f.account,
+        f.realName,
+        f.picture,
+        f.caption,
+        f.location,
+        f.tag,
+        f.likeNum,
+        u.profileimgurl,
+        u.id
         FROM feed as f
         join user as u
         on f.account = u.userAccount
-        WHERE  u.userAccount=#{userAccount}
+        WHERE u.userAccount=#{userAccount}
         ORDER BY f.num DESC
     </select>
+
+    <select id="getFeedByAccount" parameterType="String"
+            resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+        SELECT
+        f.num,
+        f.account,
+        f.realName,
+        f.picture,
+        f.caption,
+        f.location,
+        f.tag,
+        f.likeNum,
+
+        FROM feed as f
+         LEFT JOIN REPLY AS R ON R.FEED_NUM = F.NUM
+        WHERE u.userAccount=#{userAccount}
+        ORDER BY f.num DESC
+    </select>
+    <select id="feedHasReply" resultType="com.jun.clonestar.domains.feed.DTO.entity.FeedEntity">
+        select * from feed ORDER BY num DESC
+    </select>
+    <select id="getReplyList"
+            parameterType="Integer"
+            resultType="com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity">
+        <!--parameterType="Integer"-->
+        select * from reply where feedNum= #{feedNum}
+    </select>
+    <select id="getReplyList2"
+            parameterType="List"
+            resultType="com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity">
+        <!--parameterType="Integer"-->
+        select * from reply where feedNum in ( <foreach collection="list" item="">feedNum</foreach> )
+    </select>
+
 </mapper>

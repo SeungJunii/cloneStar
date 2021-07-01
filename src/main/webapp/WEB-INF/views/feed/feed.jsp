@@ -11,12 +11,12 @@
 <%@ include file="../includes/header.jsp" %>
 
 <script>
-    function onReplyAddClick(obj){
-        const from = $(obj).prev();
+    function onReplyAddClick(obj) {
+        const form = $(obj).prev();
         let data = {
-            feedNum: from.find(".feedNum").val(),
+            feedNum: form.find(".feedNum").val(),
             writer: $(".writer").val(),
-            content: from.find(".content").val(),
+            content: form.find(".content").val(),
         }
         $.ajax({
             type: 'post',
@@ -27,7 +27,7 @@
         })
             .done(function () {
                 alert("댓글등록완료");
-                location.href= '/';
+                location.href = '/';
             })
             .fail(function () {
                 alert("댓글등록실패")
@@ -58,21 +58,20 @@
                 </div>
                 <span class="photo__likes">1 likes</span>
                 <ul class="photo__comments">
-                    <li class="photo__comment">
-                        <span class="photo__comment-author">ㅇㅇㅇ</span> 좋아요
-                    </li>
-                    <li class="photo__comment">
-                        <span class="photo__comment-author">ㅁㅁㅁ</span> 싫어요
-                    </li>
+                    <c:forEach items="${feed.replyEntities}" var="reply">
+                        <li class="photo__comment">
+                            <span class="photo__comment-author">${reply.writer}</span> ${reply.content}
+                        </li>
+                    </c:forEach>
                 </ul>
                 <span class="photo__date">${feed.time}</span>
                 <div class="photo__add-comment-container">
                     <form class="cmform">
-                        <input class="feedNum" type="text" value="${feed.num}">
+                        <input class="feedNum" type="text" value="${feed.num}" hidden>
                         <input class="writer" type="text" value="${principal.userEntity.nickName}" hidden>
                         <textarea class="content" placeholder="댓글을 ...."></textarea>
                     </form>
-                    <button <%--class="btn-reply"--%> value="등록" onclick="onReplyAddClick(this)">등록</button>
+                    <button value="등록" onclick="onReplyAddClick(this)">등록</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,9 @@ package com.jun.clonestar.domains.feed.Controller;
 import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
 import com.jun.clonestar.domains.User.service.UserService;
 import com.jun.clonestar.domains.feed.DTO.entity.FeedEntity;
-import com.jun.clonestar.domains.feed.service.FeedSerivice;
+import com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity;
+import com.jun.clonestar.domains.feed.service.FeedService;
+import com.jun.clonestar.domains.feed.service.ReplyService;
 import com.jun.clonestar.util.FileUploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,16 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.security.Principal;
 import java.util.List;
 
 @Controller
 public class FeedController {
     @Autowired
-    private FeedSerivice feedSerivice;
+    private FeedService feedService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ReplyService replyService;
 
 
     @PostMapping("/api/register")
@@ -33,7 +37,7 @@ public class FeedController {
         String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         feedEntity.setPicture(filename);
 
-        feedSerivice.register(feedEntity);
+        feedService.register(feedEntity);
 
         String uploadDir = "feed-picture/" + feedEntity.getNum();
         FileUploadUtil.saveFile(uploadDir, filename, multipartFile);
@@ -53,16 +57,21 @@ public class FeedController {
 
 
     @GetMapping({"/", "", "/feed"})
-    public String feedList(Model model) throws Exception {
-        List<FeedEntity> feedList = feedSerivice.feedList(model);
+    public String feedList(Model model, FeedEntity feedEntity) throws Exception {
+        List<FeedEntity> feedList = feedService.feedList(model);
+        feedList.forEach(feed -> {
+            feed.setReplyEntities(feedService.getReplyList(feed.getNum()));
+        });
         model.addAttribute("feedList",feedList);
+        /*List<ReplyEntity> replyEntityList = replyService.replyAll(10);
+        model.addAttribute("replyList",replyEntityList);*/
         return "feed/feed";
     }
 
 
     @GetMapping("/user/profile/{account}")
     public String getFeedByAccount(@PathVariable String account , Model model) throws Exception {
-        List<FeedEntity> getFeedByAccount = feedSerivice.getFeedByAccount(account);
+        List<FeedEntity> getFeedByAccount = feedService.getFeedByAccount(account);
         model.addAttribute("getFeedByAccount",getFeedByAccount);
         UserEntity info = userService.information(account);
         model.addAttribute("info",info);

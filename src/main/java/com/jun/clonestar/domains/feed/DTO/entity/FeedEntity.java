@@ -12,8 +12,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class FeedEntity {
-
-
     private Integer num;
     private String account;//계정명
     private String realName;// 성명

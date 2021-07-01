@@ -16,4 +16,8 @@
         now()
         )
     </insert>
+
+    <select id="selectReply" parameterType ="Integer" resultType="com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity">
+        select * from reply where feedNum=#{feedNum} ORDER BY replyId DESC
+    </select>
 </mapper>
