@@ -1,9 +1,8 @@
-package com.jun.clonestar.domains.feed.Controller;
+package com.jun.clonestar.domains.feed.controller;
 
 import com.jun.clonestar.domains.User.DTO.entity.UserEntity;
 import com.jun.clonestar.domains.User.service.UserService;
 import com.jun.clonestar.domains.feed.DTO.entity.FeedEntity;
-import com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity;
 import com.jun.clonestar.domains.feed.service.FeedService;
 import com.jun.clonestar.domains.feed.service.ReplyService;
 import com.jun.clonestar.util.FileUploadUtil;

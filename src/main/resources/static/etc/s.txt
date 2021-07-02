@@ -1,0 +1,60 @@
+create database clonestar;
+use clonestar;
+drop table user;
+create table user (
+	id integer auto_increment primary key,
+    userAccount varchar(128) NOT null,
+    realName  varchar(128) not null ,
+    nickName varchar(128) not null ,
+    password varchar(128) not null ,
+    phone varchar(20) ,
+    gender varchar(128) ,
+    bio varchar(128) ,
+    website varchar(128),
+    profileimgurl varchar(128),
+    role varchar(10),
+    createDate Date,
+    index (userAccount)
+);
+
+drop table feed;
+create table feed (
+	num integer auto_increment primary key,
+    account varchar(128) NOT null,
+    realName  varchar(128) not null ,
+    nickName varchar(128) not null ,
+    picture varchar(128) ,
+    caption varchar(128) ,
+    location varchar(128),
+    tag varchar(128),
+    likeNum int(128),
+    time Date,
+    index (account)
+);
+
+
+
+alter table feed drop profileimgurl;
+
+
+drop table reply;
+CREATE TABLE reply (
+replyId integer NOT NULL AUTO_INCREMENT,
+feedNum integer NOT NULL DEFAULT 0,
+content VARCHAR(1000) NOT NULL,
+writer VARCHAR(50) NOT NULL,
+createTime date,
+PRIMARY KEY (replyId) );
+
+ALTER TABLE reply ADD CONSTRAINT FK_ARTICLE FOREIGN KEY (feedNum) REFERENCES feed (num);
+
+
+CREATE TABLE follow (
+fnum integer NOT NULL AUTO_INCREMENT,
+activeId integer,
+passiveId integer,
+regDate date,
+PRIMARY KEY (fnum) );
+
+
+

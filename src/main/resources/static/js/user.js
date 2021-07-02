@@ -80,7 +80,7 @@ let index = {
             dataType: "text"
         }).done(function (resp) {
             alert("회원수정이 완료되었습니다.");
-            location.href = "/feed/feed";
+            location.href = "/feed";
         }).fail(function (error) {
             console.log(JSON.stringify(error));
         });

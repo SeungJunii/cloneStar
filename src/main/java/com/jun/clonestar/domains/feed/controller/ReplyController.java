@@ -1,4 +1,4 @@
-package com.jun.clonestar.domains.feed.Controller;
+package com.jun.clonestar.domains.feed.controller;
 
 import com.jun.clonestar.domains.feed.DTO.entity.ReplyEntity;
 import com.jun.clonestar.domains.feed.service.ReplyService;
