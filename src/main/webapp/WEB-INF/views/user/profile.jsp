@@ -28,12 +28,22 @@
             <div class="profile__title">
 
                 <h1>${info.nickName}</h1>
-                <c:if test="${info.userAccount==principal.userEntity.userAccount}">
-                    <a href="/user/edit">
-                        <button>Edit Profile</button>
-                    </a>
-                    <i class="fa fa-cog fa-lg"></i>
-                </c:if>
+                <c:choose>
+                    <c:when test="${info.userAccount==principal.userEntity.userAccount}">
+                        <a href="/user/edit">
+                            <button>Edit Profile</button>
+                        </a>
+                        <i class="fa fa-cog fa-lg"></i>
+                    </c:when>
+                    <c:otherwise>
+                        <form action="/follow" method="post">
+                            <input name="activeId" type="text" value="${principal.userEntity.id}" hidden>
+                            <input name="passiveId" type="text" value="${info.id}" hidden>
+                            <button>follow</button>
+                        </form>
+                    </c:otherwise>
+                </c:choose>
+
             </div>
             <ul class="profile__stats">
                 <li class="profile__stat">

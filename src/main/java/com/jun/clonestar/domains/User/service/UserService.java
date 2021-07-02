@@ -29,18 +29,20 @@ public class UserService {
 
     }
 
-    @Transactional
+
     public void updateUser(UserEntity userEntity){
         commonDao.updateData("User.updateUser", userEntity);
     }
 
-    @Transactional
+
     public void updateUserImg(UserEntity userEntity){
         commonDao.updateData("User.updateUserImg", userEntity);
     }
 
-    @Transactional
+
     public UserEntity information(String account){ return commonDao.getData("User.selectAccount", account);}
+
+    public UserEntity selectById(Integer id){ return commonDao.getData("User.selectId", id);}
 
 
     /*public void login(UserEntity userEntity) {

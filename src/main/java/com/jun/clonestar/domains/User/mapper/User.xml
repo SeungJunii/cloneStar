@@ -23,7 +23,9 @@
     <select id="existAccount" parameterType="String" resultType="boolean">
         SELECT COUNT(*) FROM user WHERE userAccount=#{userAccount}
     </select>
-
+    <select id="selectId" resultType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
     <select id="selectAccount" resultType="com.jun.clonestar.domains.User.DTO.entity.UserEntity">
         SELECT u.*, u.userAccount as userAccount FROM user u WHERE userAccount=#{userAccount}
     </select>

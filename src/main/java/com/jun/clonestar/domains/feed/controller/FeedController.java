@@ -74,6 +74,7 @@ public class FeedController {
         model.addAttribute("getFeedByAccount",getFeedByAccount);
         UserEntity info = userService.information(account);
         model.addAttribute("info",info);
+
         return "user/profile";
     }
 

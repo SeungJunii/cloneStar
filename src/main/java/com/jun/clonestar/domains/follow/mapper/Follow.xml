@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
-<mapper namespace="Follow" >
-    <insert id="insert" parameterType="com.jun.clonestar.domains.follow.DTO.entity.FollowEntity" useGeneratedKeys="true" keyProperty="fnum">
-
+<mapper namespace="Follow">
+    <insert id="inFollow" parameterType="com.jun.clonestar.domains.follow.DTO.entity.FollowEntity"
+            useGeneratedKeys="true" keyProperty="fnum">
+        insert into follow(
+        activeId,
+        passiveId,
+        regDate
+        ) values(
+        #{activeId},
+        #{passiveId},
+        now()
+        )
     </insert>
+    <delete id="unFollow" parameterType="com.jun.clonestar.domains.follow.DTO.entity.FollowEntity">
+        delete from follow
+        where
+        activeId =#{activeId},
+        passiveId =#{passiveId}
+    </delete>
+
+    <select id="existFollow" resultType="Integer" >
+        select count(*) from follow
+        where
+        activeId =#{activeId}
+        and
+        passiveId =#{passiveId}
+    </select>
 </mapper>

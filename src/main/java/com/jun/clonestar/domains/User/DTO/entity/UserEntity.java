@@ -30,7 +30,8 @@ public class UserEntity {
     private LocalDate createDate;
 
     @Builder
-    public UserEntity(String userAccount, String realName, String nickName, String password, String phone , String gender, String bio, String website, String profileImgUrl, RoleType role ){
+    public UserEntity(Integer id, String userAccount, String realName, String nickName, String password, String phone , String gender, String bio, String website, String profileImgUrl, RoleType role ){
+        this.id = id;
         this.userAccount = userAccount;
         this.realName = realName;
         this.nickName = nickName;
